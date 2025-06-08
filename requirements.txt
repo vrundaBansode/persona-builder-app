@@ -1,1 +1,11 @@
 python-dotenv==1.0.0 
+streamlit
+google-generativeai
+python-dotenv==1.0.0
+Pillow
+google-cloud-vision
+google-cloud-storage
+google-cloud-aiplatform
+google-cloud-visionai
+matplotlib
+plotly==5.18.0
