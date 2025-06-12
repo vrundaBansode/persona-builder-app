@@ -31,13 +31,21 @@ st.set_page_config(
 )
 
 # --- API Key Configuration ---
-class Config:
-    @staticmethod
-    def get_api_key(key_name):
-        return os.getenv(key_name)
+# class Config:
+#     @staticmethod
+#     def get_api_key(key_name):
+#         return os.getenv(key_name)
 
+# try:
+#     GEMINI_API_KEY = Config.get_api_key("GEMINI_API_key")
+#     if not GEMINI_API_KEY:
+#         raise KeyError("GEMINI_API_key environment variable not set.")
+#     genai.configure(api_key=GEMINI_API_KEY)
+# except KeyError as e:
+#     st.error(f"{e} Please set it before running the app. Example: export GEMINI_API_KEY='YOUR_API_KEY'")
+#     st.stop()
 try:
-    GEMINI_API_KEY = Config.get_api_key("GEMINI_API_key")
+    GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
     if not GEMINI_API_KEY:
         raise KeyError("GEMINI_API_key environment variable not set.")
     genai.configure(api_key=GEMINI_API_KEY)
